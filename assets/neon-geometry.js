@@ -30,11 +30,12 @@ const storageKey = 'neon-geometry-transforms-v1';
 let saved = {};
 try { saved = JSON.parse(localStorage.getItem(storageKey) || '{}'); } catch {}
 const picker = document.querySelector('#object-picker');
+const editor = document.querySelector('#editor');
 const status = document.querySelector('#edit-status');
 const gizmo = new TransformControls(camera, renderer.domElement);
 gizmo.setSize(.8);
 scene.add(gizmo);
-gizmo.addEventListener('dragging-changed', e => { controls.enabled = !e.value; });
+gizmo.addEventListener('dragging-changed', e => { controls.enabled = editor.open && !e.value; });
 const uniformScale = document.querySelector('#uniform-scale');
 let scaleAtDragStart;
 gizmo.addEventListener('mouseDown', () => {
@@ -89,9 +90,31 @@ document.querySelector('#export-edits').onclick=()=>{
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 };
 const raycaster=new THREE.Raycaster();const pointer=new THREE.Vector2();let down;
-renderer.domElement.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY,gizmo:!!gizmo.axis};});
+function syncInteraction() {
+  controls.enabled = editor.open && !gizmo.dragging;
+  gizmo.enabled = editor.open;
+  renderer.domElement.style.pointerEvents = editor.open ? 'auto' : 'none';
+  renderer.domElement.style.touchAction = editor.open ? 'none' : 'auto';
+  if (!editor.open) {
+    down = undefined;
+    selectObject();
+  }
+}
+editor.addEventListener('toggle', syncInteraction);
+syncInteraction();
+// A collapsed scene lives inside an iframe: forward wheel scrolling to the page.
+addEventListener('wheel', e => {
+  if (editor.open || window.parent === window || e.ctrlKey) return;
+  if (e.target.closest?.('details[open]')) return;
+  const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? innerHeight : 1;
+  try {
+    window.parent.scrollBy({left: e.deltaX * unit, top: e.deltaY * unit, behavior: 'instant'});
+    e.preventDefault();
+  } catch { /* Cross-origin embeds keep their normal browser behavior. */ }
+}, {passive: false});
+renderer.domElement.addEventListener('pointerdown',e=>{if(editor.open)down={x:e.clientX,y:e.clientY,gizmo:!!gizmo.axis};});
 renderer.domElement.addEventListener('pointerup',e=>{
-  if(!down || down.gizmo || gizmo.dragging || Math.hypot(e.clientX-down.x,e.clientY-down.y)>4) return;
+  if(!editor.open || !down || down.gizmo || gizmo.dragging || Math.hypot(e.clientX-down.x,e.clientY-down.y)>4) return;
   const rect=renderer.domElement.getBoundingClientRect();
   pointer.set((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);
   raycaster.setFromCamera(pointer,camera);
@@ -101,6 +124,7 @@ renderer.domElement.addEventListener('pointerup',e=>{
   selectObject(obj);
 });
 addEventListener('keydown',e=>{
+  if(!editor.open) return;
   if(['INPUT','SELECT','TEXTAREA','BUTTON'].includes(document.activeElement?.tagName)) return;
   if(e.key==='Escape')selectObject();
   const mode={w:'translate',e:'rotate',r:'scale'}[e.key.toLowerCase()];
