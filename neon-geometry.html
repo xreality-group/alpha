@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Neon Geometry — xReality</title>
+<style>
+html,body{margin:0;height:100%;overflow:hidden;background:#170c29;color:#eadcf9;font-family:system-ui,sans-serif}canvas{display:block;width:100%;height:100%}.caption{position:absolute;left:28px;bottom:24px;pointer-events:none}.caption strong{font-size:12px;letter-spacing:.24em;font-weight:500}.caption p{font-size:11px;opacity:.55;margin:8px 0}button{position:absolute;right:26px;bottom:25px;background:#23133499;border:1px solid #c775d544;border-radius:20px;color:#eadcf9;padding:9px 16px;cursor:pointer}#error{position:absolute;inset:40%;display:none}
+</style>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+</head>
+<body>
+<div id="error">This scene requires WebGL and an internet connection to load Three.js.</div>
+<details id="editor">
+<summary style="cursor:pointer">Edit objects</summary>
+<div class="editor-content">
+<select id="object-picker" aria-label="Select object"><option value="">Click an object or choose here</option></select>
+<div><button data-mode="translate" aria-pressed="true">Move (W)</button><button data-mode="rotate" aria-pressed="false">Rotate (E)</button><button data-mode="scale" aria-pressed="false">Scale (R)</button></div>
+<select id="edit-space" aria-label="Handle orientation"><option value="world">World axes</option><option value="local">Local axes</option></select>
+<label style="display:block;margin:8px 0"><input type="checkbox" id="uniform-scale"> Uniform scale</label>
+<p>Drag a colored handle. Select a pair from the list to edit both shapes together. Esc deselects.</p>
+<div><button id="save-edits">Save</button><button id="reset-edit">Reset selected</button><button id="export-edits">Export</button></div>
+<p id="edit-status" role="status">Save keeps placements after reload in this browser.</p>
+</div>
+</details>
+<style>
+#editor{position:absolute;left:26px;top:20px;max-width:280px;max-height:70vh;overflow:auto;padding:10px;background:#190c2cbb;border-radius:8px;font-size:11px}
+#editor .editor-content{width:min(280px,calc(100vw - 72px));padding-top:8px}
+#editor strong{display:block;margin-bottom:12px}#editor select{width:100%;margin:8px 0;background:#302040;color:#eadcf9;border:1px solid #775286;border-radius:6px;padding:7px}#editor button{position:static;padding:7px 9px;border-radius:6px;margin:3px 0}#editor button[aria-pressed=true]{background:#71388b;border-color:#d79cef}#editor p{line-height:1.5;color:#bda9ce;margin:10px 0}
+</style>
+<script type="module" src="assets/neon-geometry.js?v=10"></script>
+<details style="position:absolute;right:26px;top:20px;font-size:11px;max-width:300px;background:#190c2cbb;padding:10px;border-radius:8px">
+<summary style="cursor:pointer">Model credits</summary>
+<p>Normal-material adaptations of models from <a href="https://poly.pizza" style="color:#9befff">Poly Pizza</a>.</p>
+<p><a href="https://poly.pizza/m/2vPmLo3c734">Skull Oculus Rift</a> — Robin Goldenberg;<br>
+<a href="https://poly.pizza/m/5POtMKIT_Ze">Heart</a> and <a href="https://poly.pizza/m/8KY9R5UDV_M">Donut</a> — Poly by Google;<br>
+<a href="https://poly.pizza/m/5Q3oOgvaZUR">Paint brush</a> — jeremy;<br>
+<a href="https://poly.pizza/m/2_FO0E5vFOc">Paint kit mini</a> — Tiff Eidmann.<br>
+<a href="https://poly.pizza/m/DTOzkHhvDK">Ramen</a> — Quaternius.<br>
+These models are licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+</details>
+<style>details a{color:#9befff}</style>
+<script>
+if (new URLSearchParams(location.search).has('hero')) {
+  const style = document.createElement('style');
+  style.textContent = '#editor,body>details:not(#editor){top:90px!important}';
+  document.head.appendChild(style);
+}
+</script>
+</body></html>

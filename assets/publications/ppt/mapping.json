@@ -1,0 +1,57 @@
+[
+  {
+    "slide": 2,
+    "publication": "non-gon: A Non-Polygonal Collision Detection Library for Real-Time Queries Between Smooth Convex Shapes",
+    "thumbnail": "assets/publications/ppt/non-gon.png"
+  },
+  {
+    "slide": 3,
+    "publication": "Informing food choices with mAR: A field experiment on food affordances, functionality, and sustainability",
+    "thumbnail": "assets/publications/ppt/arfood.png"
+  },
+  {
+    "slide": 4,
+    "publication": "Digital twins for non-invasive tumor localization in breast-conserving surgery: a technical pilot study",
+    "thumbnail": "assets/publications/ppt/digital-twins.png"
+  },
+  {
+    "slide": 5,
+    "publication": "Ghost in the VR Shell: Capturing Spectral Cardio-Respiratory Rates from Subtle VR Device Movements",
+    "thumbnail": "assets/publications/ppt/ghost-in-the-vr-shell.png"
+  },
+  {
+    "slide": 6,
+    "publication": "Assessing Redundant Interface Designs for Precise Number Input in Virtual Reality",
+    "thumbnail": "assets/publications/ppt/xr-numpads.png"
+  },
+  {
+    "slide": 7,
+    "publication": "Your Face, Your Anatomy: Flashcard Lenses Enriched with Knowledge Maps for Anatomy Education",
+    "thumbnail": "assets/publications/ppt/your-face-your-anatomy.png"
+  },
+  {
+    "slide": 8,
+    "publication": "Knowledge maps as a complementary tool to learn and teach surgical anatomy in virtual reality",
+    "thumbnail": "assets/publications/ppt/implantigraph.png"
+  },
+  {
+    "slide": 9,
+    "publication": "BREAST+: An AR interface that speeds up perforator marking for DIEAP flap reconstruction surgery",
+    "thumbnail": "assets/publications/ppt/breastplus.png"
+  },
+  {
+    "slide": 10,
+    "publication": "The Impact of Watching Nature Videos on the Well-Being of Informal Caregivers",
+    "thumbnail": "assets/publications/ppt/interact-2023.png"
+  },
+  {
+    "slide": 11,
+    "publication": "Improved Operative Dentistry VR Simulator with Haptic Feedback",
+    "thumbnail": "assets/publications/ppt/dentify-2.png"
+  },
+  {
+    "slide": 12,
+    "publication": "Feasibility and Expert Acceptance of a Virtual Reality Gait Rehabilitation Tool",
+    "thumbnail": "assets/publications/ppt/locomotivr.png"
+  }
+]

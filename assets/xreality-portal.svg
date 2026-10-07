@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract neon portal</title>
+  <desc id="desc">Geometric portal with cyberpunk neon lines.</desc>
+  <defs>
+    <linearGradient id="portalLine" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#b8ff5e"/>
+      <stop offset="0.42" stop-color="#18e4ff"/>
+      <stop offset="1" stop-color="#ff3df2"/>
+    </linearGradient>
+    <filter id="softGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="760" height="560" fill="#090918"/>
+  <g opacity="0.38" stroke="#18e4ff" stroke-width="1">
+    <path d="M0 420h760M0 360h760M0 300h760M0 240h760"/>
+    <path d="M80 0v560M160 0v560M240 0v560M320 0v560M400 0v560M480 0v560M560 0v560M640 0v560"/>
+  </g>
+  <g fill="none" stroke="url(#portalLine)" stroke-width="5" filter="url(#softGlow)">
+    <path d="M380 72 602 190v238L380 510 158 428V190z"/>
+    <path d="M380 132 548 220v178L380 452 212 398V220z"/>
+    <path d="M380 194 488 250v116L380 390 272 366V250z"/>
+    <path d="M158 190l222 320 222-320M158 428l444-238M602 428 158 190"/>
+  </g>
+  <g fill="#ff3df2">
+    <circle cx="380" cy="72" r="8"/>
+    <circle cx="602" cy="190" r="8"/>
+    <circle cx="158" cy="428" r="8"/>
+  </g>
+  <g fill="#b8ff5e">
+    <circle cx="380" cy="510" r="8"/>
+    <circle cx="158" cy="190" r="8"/>
+    <circle cx="602" cy="428" r="8"/>
+  </g>
+</svg>

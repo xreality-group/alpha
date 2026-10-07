@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract neon XR geometry</title>
+  <desc id="desc">Layered neon geometric entities forming a spatial structure.</desc>
+  <defs>
+    <linearGradient id="cyanPink" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18e4ff"/>
+      <stop offset="0.52" stop-color="#ff3df2"/>
+      <stop offset="1" stop-color="#b8ff5e"/>
+    </linearGradient>
+    <radialGradient id="core" cx="50%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.18" stop-color="#18e4ff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#070712" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="720" fill="none"/>
+  <circle cx="470" cy="350" r="245" fill="url(#core)"/>
+  <g fill="none" stroke="url(#cyanPink)" stroke-width="4" filter="url(#glow)">
+    <path d="M179 393 427 107l291 103 31 341-319 88z"/>
+    <path d="M427 107 430 639M179 393l570 158M718 210 430 639"/>
+    <path d="M258 257 579 163 666 443 348 535z" opacity="0.82"/>
+    <path d="M348 535 258 257M579 163l-231 372M666 443 258 257" opacity="0.55"/>
+    <circle cx="427" cy="107" r="18"/>
+    <circle cx="179" cy="393" r="18"/>
+    <circle cx="749" cy="551" r="18"/>
+    <circle cx="430" cy="639" r="18"/>
+    <circle cx="718" cy="210" r="18"/>
+  </g>
+  <g fill="none" stroke="#ffb84d" stroke-width="3" opacity="0.78">
+    <path d="M103 522h128M640 92h116M710 622h78"/>
+    <path d="M124 544h82M661 114h64M731 644h42"/>
+  </g>
+  <g fill="#18e4ff">
+    <rect x="246" y="128" width="10" height="10"/>
+    <rect x="790" y="332" width="10" height="10"/>
+    <rect x="118" y="305" width="10" height="10"/>
+  </g>
+  <g fill="#ff3df2">
+    <rect x="535" y="51" width="12" height="12" transform="rotate(45 541 57)"/>
+    <rect x="306" y="630" width="12" height="12" transform="rotate(45 312 636)"/>
+    <rect x="792" y="507" width="12" height="12" transform="rotate(45 798 513)"/>
+  </g>
+</svg>
